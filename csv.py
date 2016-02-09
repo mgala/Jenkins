@@ -6,33 +6,38 @@ und das ausgeben davon.
 __author__ = "Mateusz Gala"
 __version__ = "1.0"
 
+class jenkins:
+    # Oeffnen der beiden Dateien.
+    def openfile(name, like):
+        return open(name, like)
 
-output = []
-# Oeffnen der beiden Dateien.
-with open('Book1.csv') as f:
-    with open('Book2.csv') as g:
-
-        # Der Dialekt wird mittels eines Sniffers geholt
+    # Der Dialekt wird mittels eines Sniffers geholt
+    def dialekt(f):
         dialect = csv.Sniffer().sniff(f.read(1024))
-        dialect2 = csv.Sniffer().sniff(g.read(1024))
-
-        # Eine seek methode.
         f.seek(0)
-        g.seek(0)
-        # Das File wird ausgelesen mit dem erfassten Dialekt.
+
+
+    def set_delimiter(name,delimiter):
+        csv.register_dialect(name, delimiter)
+
+    # Das File wird ausgelesen mit dem erfassten Dialekt.
+    def read(f, dialect):
         r = csv.reader(f, dialect)
-        r2 = csv.reader(g, dialect2)
 
-        #ein outputfile wird erstellt
-        outputfile = open('output.csv', "wt")
-        #in das neue file wird mit dem dialekt = ; geschrieben
-        csv.register_dialect('semicolon', delimiter=';')
-        writer = csv.writer(outputfile, dialect='semicolon')
-
-        #auslesen der Dateinen + ausgeben von output.csv im gleichen Ordner
-        for row in r:
+    #die files werden in 1 file umgewandelt
+    def mergefiles(r1,r2):
+        output = []
+        for row in r1:
             output.append(row)
         for row in r2:
             output.append(row)
+
+    #ein outputfile wird erstellt
+    #in das neue file wird mit einem beliebigen dialekt geschrieben
+    def outputfile(outputfilename, dialekt, output):
+        writer = csv.writer(outputfilename, dialekt)
         for all in output:
             writer.writerow(all)
+
+    def close_file(file):
+        file.close()

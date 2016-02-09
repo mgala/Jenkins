@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite name="nosetests" tests="1" errors="1" failures="0" skip="0"><testcase classname="nose.failure.Failure" name="runTest" time="0.001"><error type="builtins.AttributeError" message="'module' object has no attribute 'Sniffer'"><![CDATA[Traceback (most recent call last):
+  File "c:\python34\lib\unittest\case.py", line 58, in testPartExecutor
+    yield
+  File "c:\python34\lib\unittest\case.py", line 577, in run
+    testMethod()
+  File "c:\python34\lib\site-packages\nose\failure.py", line 39, in runTest
+    raise self.exc_val.with_traceback(self.tb)
+  File "c:\python34\lib\site-packages\nose\loader.py", line 418, in loadTestsFromName
+    addr.filename, addr.module)
+  File "c:\python34\lib\site-packages\nose\importer.py", line 47, in importFromPath
+    return self.importFromDir(dir_path, fqname)
+  File "c:\python34\lib\site-packages\nose\importer.py", line 94, in importFromDir
+    mod = load_module(part_fqname, fh, filename, desc)
+  File "c:\python34\lib\imp.py", line 235, in load_module
+    return load_source(name, filename, file)
+  File "c:\python34\lib\imp.py", line 171, in load_source
+    module = methods.load()
+  File "<frozen importlib._bootstrap>", line 1220, in load
+  File "<frozen importlib._bootstrap>", line 1200, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1129, in _exec
+  File "<frozen importlib._bootstrap>", line 1471, in exec_module
+  File "<frozen importlib._bootstrap>", line 321, in _call_with_frames_removed
+  File "C:\Users\Matek\PycharmProjects\jenkins\csv.py", line 9, in <module>
+    class jenkins:
+  File "C:\Users\Matek\PycharmProjects\jenkins\csv.py", line 16, in jenkins
+    dialect = csv.Sniffer().sniff(f.read(1024))
+AttributeError: 'module' object has no attribute 'Sniffer'
+]]></error></testcase></testsuite>
