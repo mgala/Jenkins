@@ -2,6 +2,7 @@ from csv1 import *
 from unittest import TestCase
 
 __author__ = 'Mateusz Gala'
+
 class Tests(TestCase):
     def setUp(self):
         self.csv = csv1()
